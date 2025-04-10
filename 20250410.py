@@ -73,4 +73,16 @@ kn49.fit(fish_data, fish_target)
 print(kn49.score(fish_data, fish_target))
 
 print(35/49)
+
+"""### 확인 문제( 점수가 1.0 아래로 내려가기 시작하는 이웃의 개수 찾기 )"""
+
+for n in range(5, 50):
+    # k-최근접 이웃 개수 설정
+    kn.n_neighbors = n
+    # 점수 계산
+    score = kn.score(fish_data, fish_target)
+    # 100% 정확도에 미치지 못하는 이웃 개수 출력
+    if score < 1:
+        print(n, score)
+        break
 # %%
